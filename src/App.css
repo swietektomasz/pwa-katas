@@ -28,6 +28,21 @@
   color: #61dafb;
 }
 
+.Navbar {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Navlink {
+  text-decoration: none;
+  color: black;
+}
+
+.Active-navlink {
+  font-weight: bold;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
