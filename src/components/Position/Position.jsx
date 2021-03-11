@@ -7,6 +7,11 @@ export function Position() {
     setOrientation({ alpha: event.alpha, beta: event.beta, gamma: event.gamma });
   };
 
+  const checkLevel = (beta, gamma) => {
+    const isLevel = (beta - -5) * (beta - 5) < 0 && (gamma - -5) * (gamma - 5) < 0;
+    return isLevel ? "level" : "not-level";
+  };
+
   useEffect(() => {
     window.addEventListener("deviceorientation", handleDeviceOrientation);
     return () => window.removeEventListener("deviceorientation", handleDeviceOrientation);
@@ -17,7 +22,7 @@ export function Position() {
       <span>Alpha: {alpha.toFixed(0)}</span>
       <span>Beta: {beta.toFixed(0)}</span>
       <span>Gamma: {gamma.toFixed(0)}</span>
-      <div>Your device's position is: {beta.toFixed(0) === 0 && gamma.toFixed(0) === 0 ? "level" : "not level"}</div>
+      <div>Your device's position is: {checkLevel(beta.toFixed(0), gamma.toFixed(0))}</div>
     </div>
   );
 }
