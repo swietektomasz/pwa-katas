@@ -17,7 +17,7 @@ export function Position() {
       <span>Alpha: {alpha.toFixed(0)}</span>
       <span>Beta: {beta.toFixed(0)}</span>
       <span>Gamma: {gamma.toFixed(0)}</span>
-      <div>Your device's position is: {alpha === 0 && beta === 0 && gamma === 0 ? "level" : "not level"}</div>
+      <div>Your device's position is: {beta.toFixed(0) === 0 && gamma.toFixed(0) === 0 ? "level" : "not level"}</div>
     </div>
   );
 }
