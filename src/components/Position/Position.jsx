@@ -1,4 +1,23 @@
+import { useEffect, useState } from "react";
+
 export function Position() {
-  window.addEventListener("devicemotion", (motion) => console.log(motion));
-  return <div>Position</div>;
+  const [{ alpha, beta, gamma }, setOrientation] = useState({ alpha: 0, beta: 0, gamma: 0 });
+
+  const handleDeviceOrientation = (event) => {
+    setOrientation({ alpha: event.alpha, beta: event.beta, gamma: event.gamma });
+  };
+
+  useEffect(() => {
+    window.addEventListener("deviceorientation", handleDeviceOrientation);
+    return () => window.removeEventListener("deviceorientation", handleDeviceOrientation);
+  }, []);
+
+  return (
+    <div>
+      <span>Alpha: {alpha}</span>
+      <span>Beta: {beta}</span>
+      <span>Gamma: {gamma}</span>
+      <div>Your device's position is: {alpha === 0 && beta === 0 && gamma === 0 ? "level" : "not level"}</div>
+    </div>
+  );
 }

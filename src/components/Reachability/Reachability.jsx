@@ -1,5 +1,21 @@
+import { useEffect, useState } from "react";
+
 export function Reachability() {
-  const online = window.navigator.onLine;
+  const [online, setOnline] = useState(navigator.onLine);
+
+  const updateOnlineStatus = (_event) => {
+    setOnline(navigator.onLine);
+  };
+
+  useEffect(() => {
+    window.addEventListener("online", updateOnlineStatus);
+    window.addEventListener("offline", updateOnlineStatus);
+    return () => {
+      window.removeEventListener("online", updateOnlineStatus);
+      window.removeEventListener("offline", updateOnlineStatus);
+    };
+  }, []);
+
   return (
     <div>
       {online ? (

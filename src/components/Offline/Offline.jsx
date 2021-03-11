@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Offline() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(() =>
+    JSON.parse(localStorage.getItem("notes")) === null ? [] : JSON.parse(localStorage.getItem("notes"))
+  );
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <div>

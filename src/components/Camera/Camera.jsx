@@ -1,25 +1,13 @@
-export function Camera() {
-  navigator.mediaDevices
-    .getUserMedia({ audio: false, video: true })
-    .then(function (stream) {
-      var video = document.getElementById("video");
+import { useState } from "react";
+import QrReader from "react-web-qr-reader";
 
-      if ("srcObject" in video) {
-        video.srcObject = stream;
-      } else {
-        video.src = window.URL.createObjectURL(stream);
-      }
-      video.onloadedmetadata = function (e) {
-        video.play();
-      };
-    })
-    .catch(function (err) {
-      console.log(err.name + ": " + err.message);
-    });
+export function Camera() {
+  const [scanned, setScanned] = useState();
 
   return (
     <div>
-      <video height="500" id="video" />
+      <div>Scanned content: {scanned}</div>
+      <QrReader onScan={(result) => result && setScanned(result.data)} style={{ height: 240, width: 320 }} />
     </div>
   );
 }
