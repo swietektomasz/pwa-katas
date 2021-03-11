@@ -11,36 +11,24 @@ function App() {
       <div>
         <nav>
           <ul className="Navbar">
-            <li>
-              <NavLink className="Navlink" activeClassName="Active-navlink" exact to="/">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="Navlink" activeClassName="Active-navlink" to="/geolocation">
-                Geolocation
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="Navlink" activeClassName="Active-navlink" to="/offline">
-                Offline
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="Navlink" activeClassName="Active-navlink" to="/camera">
-                Camera
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="Navlink" activeClassName="Active-navlink" to="/reachability">
-                Reachability
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="Navlink" activeClassName="Active-navlink" to="/position">
-                Position
-              </NavLink>
-            </li>
+            <NavLink className="Navlink" activeClassName="Active-navlink" exact to="/">
+              Home
+            </NavLink>
+            <NavLink className="Navlink" activeClassName="Active-navlink" to="/geolocation">
+              Geolocation
+            </NavLink>
+            <NavLink className="Navlink" activeClassName="Active-navlink" to="/offline">
+              Offline
+            </NavLink>
+            <NavLink className="Navlink" activeClassName="Active-navlink" to="/camera">
+              Camera
+            </NavLink>
+            <NavLink className="Navlink" activeClassName="Active-navlink" to="/reachability">
+              Reachability
+            </NavLink>
+            <NavLink className="Navlink" activeClassName="Active-navlink" to="/position">
+              Position
+            </NavLink>
           </ul>
         </nav>
         <Switch>
